@@ -16,6 +16,7 @@ public class ContentController {
 	@RequestMapping(value="/content/list", method=RequestMethod.GET)
 	public String listPage(Model model) {
 		logger.info("Content List Page..........");
+		logger.info("Content List Page..........");
 		
 		
 		return "content.list";
