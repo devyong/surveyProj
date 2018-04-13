@@ -26,6 +26,8 @@ public class ContentController {
 	@RequestMapping(value="/content/read", method=RequestMethod.GET)
 	public String readPage(Model model) {
 		logger.info("Content Read Page..........");
+		logger.info("Content Read Page..........");
+		logger.info("Content Read Page..........");
 		
 		
 		return "content.read";
