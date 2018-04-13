@@ -1,4 +1,4 @@
-package com.survey.web;
+package com.survey.controller;
 
 import java.text.DateFormat;
 import java.util.Date;
