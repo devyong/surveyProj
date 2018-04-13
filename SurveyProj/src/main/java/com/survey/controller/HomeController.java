@@ -66,4 +66,13 @@ public class HomeController {
 		
 		return "content.enter";
 	}
+	
+	// Test
+		@RequestMapping(value="/content/modify", method=RequestMethod.GET)
+		public String modifyPage(Model model) {
+			logger.info("Content Enter Page..........");
+			
+			
+			return "content.modify";
+		}
 }
