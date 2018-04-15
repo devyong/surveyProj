@@ -2,6 +2,7 @@ package com.survey.interceptor;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
@@ -13,10 +14,21 @@ public class AuthenticationInterceptor extends HandlerInterceptorAdapter{
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
+		HttpSession session = request.getSession();
+		Object obj = session.getAttribute("authUser");
+		boolean auth = true;
 		
-		return super.preHandle(request, response, handler);
+		
+		if (obj == null) {
+			auth = false;
+			response.sendRedirect("/");
+		}
+		
+		
+		return auth;
 	}
 
+	// 컨트롤러 수행 후 화면에 결과가 뿌려지기전에 거쳐가는 메서
 	@Override
 	public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler,
 			ModelAndView modelAndView) throws Exception {
