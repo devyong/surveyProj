@@ -2,6 +2,8 @@ package com.survey.controller;
 
 import java.util.Locale;
 
+import javax.servlet.http.HttpSession;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,15 +36,16 @@ public class HomeController {
 	
 	
 	@RequestMapping(value = "/", method=RequestMethod.POST)
-	public String login(MemberVO member, Model model) {
+	public String login(MemberVO member, Model model, HttpSession session) {
 		String returnURL = "";
 		
-		MemberVO login = service.login(member);
+		MemberVO user = service.login(member);
 		
-		if (login == null) {
+		if (user == null) {
 			logger.info("fail... return home");
 			returnURL = "home.home";
 		} else {
+			session.setAttribute("authUser", user);
 			returnURL = "redirect:/content/list";
 		}
 		
