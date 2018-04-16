@@ -50,7 +50,7 @@
 		<tbody>
 			<tr class="">
 				<td>3999<br></td>
-				<td><a style="" href="?proc_type=view&amp;a_num=16234053&amp;b_num=178&amp;rtn_url=%2Fcontent%2F01_01.php">당신은 어떤 과일을 좋아 하시나요?</a></td>
+				<td id='title'><a style="" href="/content/1">당신은 어떤 과일을 좋아 하시나요?</a></td>
 				<td><span class="">운영자</span></td>
 				<td><span class="">2018-04-10</span></td>
 				<td><span class="">2018-04-25</span></td>
@@ -98,7 +98,18 @@
 $(".jsTemp7").each(function(){
 	$(this).children("td").css("background-color","#eaeaea");
 });
+
+$(function (){
+	$('#title').click(function (e){
+		alert("타이틀 눌럿엉")
+		e.preventDefault();
+		var addr = $(this).children("a").attr("href");
+		location.href(addr);
+	})
+})
 </script>
+
+
 
 </div>
 <!--//내용영역-->
