@@ -9,6 +9,6 @@
 	
 	<insert id="join">
 	insert into member(m_id, m_pw, m_name, m_kind, m_age, m_gender)
-	values (#{m_id}, #{m_pw}, #{m_name}, #{m_kind}, #{m_age}, #{m_gender})
+	values (#{m_id}, #{m_pw}, #{m_name}, '회원', #{m_age}, #{m_gender})
 	</insert>
 </mapper>

@@ -33,7 +33,7 @@
 	<div class="s0901">
 
 
-<form id="frm" method="post" action="https://www.panel-queen.com:7458/content/member/regist_ok.php" onsubmit="javascript: return sendit();">
+<form id="frm" method="post">
 <input type="hidden" name="m_recom_id" value="">
 
 <div class="jsMember" style="">
@@ -221,15 +221,9 @@
 
 		<div class="btn_w">
 <!-- 			<input type="button" value="다음단계" class="con_btn sky fr" id="jsBtnNext2"> -->
-			<Button type="button" value="" class="con_sbtn navy mt10">회원가입</Button>
+			<Button type="button" value="" class="con_sbtn navy mt10" onclick="submit();">회원가입</Button>
 		</div>
 </div>
-
-
-
-
-
-
 
 </form>
 

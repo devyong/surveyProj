@@ -1,5 +1,7 @@
 package com.survey.controller;
 
+import javax.inject.Inject;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -7,11 +9,16 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.survey.domain.MemberVO;
+import com.survey.service.MemberService;
+
 @Controller
 public class MemberController {
 
 	private final static Logger logger = LoggerFactory.getLogger(MemberController.class);
 	
+	@Inject
+	MemberService service;
 
 	@RequestMapping(value="/member/join", method=RequestMethod.GET)
 	public String joinPage(Model model) {
@@ -21,4 +28,12 @@ public class MemberController {
 		return "member.join";
 	}
 
+	
+	@RequestMapping(value = "/member/join", method = RequestMethod.POST)
+	public String join(Model model, MemberVO member) {
+		service.join(member);
+		
+		// 회원가입 후 로그인 페이지로
+		return "redirect:/";
+	}
 }
