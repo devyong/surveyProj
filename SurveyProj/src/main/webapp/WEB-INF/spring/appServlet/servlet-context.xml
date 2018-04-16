@@ -35,6 +35,7 @@
 	</beans:bean>
 	
 	<!-- 인터셉터 빈 생 -->
+<<<<<<< HEAD
 <!-- 	<beans:bean id="authenticationInterceptor" class="com.survey.interceptor.AuthenticationInterceptor" /> -->
 <!-- 	<interceptors> -->
 <!-- 		<interceptor> -->
@@ -43,6 +44,16 @@
 <!-- 			<exclude-mapping path="/content/list"/> -->
 <!-- 			<beans:ref bean="authenticationInterceptor"/> -->
 <!-- 		</interceptor> -->
+=======
+	<beans:bean id="authenticationInterceptor" class="com.survey.interceptor.AuthenticationInterceptor" />
+	<interceptors>
+		<interceptor>
+			<mapping path="/content/**"/>
+<!-- 			<mapping path="/admin/**"/> -->
+			<exclude-mapping path="/content/list"/>
+			<beans:ref bean="authenticationInterceptor"/>
+		</interceptor>
+>>>>>>> branch 'master' of https://github.com/devyong/surveyProj.git
 		
 <!-- 	</interceptors> -->
 	
