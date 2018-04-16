@@ -39,12 +39,9 @@
 	<interceptors>
 		<interceptor>
 			<mapping path="/content/**"/>
-			<mapping path="/"/>
 			<mapping path="/admin/**"/>
 			<exclude-mapping path="/content/list"/>
 			<beans:ref bean="authenticationInterceptor"/>
-			
-			
 		</interceptor>
 		
 	</interceptors>

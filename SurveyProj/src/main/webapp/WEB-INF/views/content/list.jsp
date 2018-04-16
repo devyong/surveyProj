@@ -11,12 +11,12 @@
 <div id="cont_wrap">
 	
 
-	<link rel="stylesheet" type="text/css" href="/content/board/nninc_poll/css/common.css">
-<link rel="stylesheet" type="text/css" href="/content/board/nninc_photo/css/lightbox.css">
-<script type="text/javascript" src="/content/board/nninc_poll/js/common.js"></script>
-<script type="text/javascript" src="/content/board/nninc_poll/js/board.js"></script>
-<script type="text/javascript" src="/content/board/nninc_photo/js/spica.js"></script>
-<script type="text/javascript" src="/content/board/nninc_photo/js/lightbox.js"></script>
+<link rel="stylesheet" type="text/css" href="http://www.panel-queen.com/content/board/nninc_poll/css/common.css">
+<link rel="stylesheet" type="text/css" href="http://www.panel-queen.com/content/board/nninc_photo/css/lightbox.css">
+<script type="text/javascript" src="http://www.panel-queen.com/content/board/nninc_poll/js/common.js"></script>
+<script type="text/javascript" src="http://www.panel-queen.com/content/board/nninc_poll/js/board.js"></script>
+<script type="text/javascript" src="http://www.panel-queen.com/content/board/nninc_photo/js/spica.js"></script>
+<script type="text/javascript" src="http://www.panel-queen.com/contentf/board/nninc_photo/js/lightbox.js"></script>
 
 
 

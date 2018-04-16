@@ -1,6 +1,20 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <link rel="stylesheet" type="text/css" href="/resources/css/style_join.css">
+<style>
+	#m_sex_1 + label{
+		background-image: url('/resources/img/radio_male.gif')
+	}
+	#m_sex_2 + label{
+		background-image: url('/resources/img/radio_female.gif')
+	}
+	#m_sex_1:checked + label{
+		background-image: url('/resources/img/radio_male_on.gif')
+	}
+	#m_sex_2:checked + label{
+		background-image: url('/resources/img/radio_female_on.gif')
+	}
+</style>
 <div id="container" class="sub">
 			<!--컨텐츠영역-->
 			<div id="contents_wide">
@@ -34,11 +48,10 @@
 				<tr>
 					<td colspan="2">
 						<dl>
-							<dt><label for="m_id">아이디</label></dt>
+							<dt><label for="m_name">이름</label></dt>
 							<dd>
-								<input id="m_id" name="m_id" type="text" class="input_box" style="ime-mode :disabled;">
+								<input id="m_name" name="m_name" type="text" class="input_box" style="ime-mode :disabled;">
 								<input type="hidden" name="idchk" value="N">
-								<button type="button" id="jsBtnIdChk" class="con_sbtn navy mt10">중복확인</button>
 							</dd>
 						</dl>
 						<p class="notice" id="jsNoticeMid"></p>
@@ -47,8 +60,21 @@
 				<tr>
 					<td colspan="2">
 						<dl>
-							<dt><label for="m_pwd">비밀번호 입력</label></dt>
-							<dd><input id="m_pwd" name="m_pwd" type="password" class="input_box" maxlength="20"></dd>
+							<dt><label for="m_id">아이디</label></dt>
+							<dd>
+								<input id="m_id" name="m_id" type="text" class="input_box" style="ime-mode :disabled;">
+								<input type="hidden" name="idchk" value="N">
+								<button type="button" id="jsBtnIdChk" class="con_sbtn blue mt10">중복확인</button>
+							</dd>
+						</dl>
+						<p class="notice" id="jsNoticeMid"></p>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2">
+						<dl>
+							<dt><label for="m_pw">비밀번호 입력</label></dt>
+							<dd><input id="m_pw" name="m_pw" type="password" class="input_box" maxlength="20"></dd>
 						</dl>
 						<p class="notice">비밀번호는 8자 이상 영문,숫자,특수문자 조합만 가능합니다.</p>
 					</td>
@@ -62,65 +88,13 @@
 						<p class="notice" id="jsNoticeMpwd"><!-- 비밀번호가 일치하지 않습니다. 다시  입력해주세요. --></p>
 					</td>
 				</tr>
-			</tbody>
-		</table>
-
-		<div class="btn_w">
-			<input type="button" value="다음단계" class="con_btn sky fr" id="jsBtnNext2">
-			<input type="button" value="이전단계" class="con_btn mint fl jsBtnPrev">
-		</div>
-</div>
-
-
-
-
-<div class="jsMember" style="display:none;">
-
-
-	<table summary="회원 성별 입력 폼 테이블입니다." class="table3">
-		<caption>회원 성별 지정</caption>
-		<colgroup>
-			<col width="50%">
-			<col width="50%">
-		</colgroup>
-		<tbody>
 			<tr>
-				<td colspan="2">
-						<div class="custom-radiobtn-sprite">
-							<input id="m_sex_1" name="m_sex" type="radio" value="1"><label class="male" for="m_sex_1">Male</label>
-							<input id="m_sex_2" name="m_sex" type="radio" value="2"><label class="female" for="m_sex_2">Female</label>
-						</div>
-				</td>
-			</tr>
-		</tbody>
-	</table>
-
-	<div class="btn_w">
-		<input type="button" value="다음단계" class="con_btn sky fr" id="jsBtnNext3">
-		<input type="button" value="이전단계" class="con_btn mint fl jsBtnPrev">
-	</div>
-
-
-</div>
-
-
-<div class="jsMember" style="display:none;">
-
-
-	<table summary="회원 출생년도, 월, 일 입력 폼 테이블입니다." class="table3">
-	<caption>회원 출생년도, 월, 일 입력</caption>
-	<colgroup>
-		<col width="50%">
-		<col width="50%">
-	</colgroup>
-	<tbody>
-		<tr>
 			<td colspan="2">
 				<div class="birth">
-					<ul>
-						<li>
+					<ul style="width: 100%">
+						<li style="width: 100%">
 							<p class="select_tit">출생년도</p>
-							<select name="m_birth_Y" id="m_birth_Y" title="년도" class="select_box">
+							<select name="m_age" id="m_age" title="년도" class="select_box" style="width: 100%">
 														<option value="1900">1900</option>
 														<option value="1901">1901</option>
 														<option value="1902">1902</option>
@@ -228,172 +202,30 @@
 														<option value="2004">2004</option>
 													</select>
 						</li>
-						<li class="sec">
-							<p class="select_tit">월</p>
-							<select name="m_birth_M" id="m_birth_M" title="월" class="select_box">
-														<option value="1">1</option>
-														<option value="2">2</option>
-														<option value="3">3</option>
-														<option value="4">4</option>
-														<option value="5">5</option>
-														<option value="6">6</option>
-														<option value="7">7</option>
-														<option value="8">8</option>
-														<option value="9">9</option>
-														<option value="10">10</option>
-														<option value="11">11</option>
-														<option value="12">12</option>
-													</select>
-						</li>
-						<li>
-							<p class="select_tit">일</p>
-							<select name="m_birth_D" id="m_birth_D" title="일" class="select_box">
-																<option value="1">1</option>
-														<option value="2">2</option>
-														<option value="3">3</option>
-														<option value="4">4</option>
-														<option value="5">5</option>
-														<option value="6">6</option>
-														<option value="7">7</option>
-														<option value="8">8</option>
-														<option value="9">9</option>
-														<option value="10">10</option>
-														<option value="11">11</option>
-														<option value="12">12</option>
-														<option value="13">13</option>
-														<option value="14">14</option>
-														<option value="15">15</option>
-														<option value="16">16</option>
-														<option value="17">17</option>
-														<option value="18">18</option>
-														<option value="19">19</option>
-														<option value="20">20</option>
-														<option value="21">21</option>
-														<option value="22">22</option>
-														<option value="23">23</option>
-														<option value="24">24</option>
-														<option value="25">25</option>
-														<option value="26">26</option>
-														<option value="27">27</option>
-														<option value="28">28</option>
-														<option value="29">29</option>
-														<option value="30">30</option>
-														<option value="31">31</option>
-													</select>
-						</li>
+						
 					</ul>
 				</div>
 			</td>
 		</tr>
-	</tbody>
-	</table>
 
-	<div class="btn_w">
-		<input type="button" value="다음단계" class="con_btn sky fr" id="jsBtnNext4">
-		<input type="button" value="이전단계" class="con_btn mint fl jsBtnPrev">
-	</div>
-
-
-</div>
-
-<div class="jsMember" style="display:none;">
-
-	<table summary="회원 국가, 시/도, 구/군 입력 폼 테이블입니다." class="table3">
-	<caption>회원 국가, 시/도, 구/군 입력</caption>
-	<colgroup>
-		<col width="50%">
-		<col width="50%">
-	</colgroup>
-	<tbody>
-		<tr>
-			<td colspan="2">
-				<dl>
-					<dt><label for="m_area1">국가</label></dt>
-					<dd>
-						<select name="m_area1" id="m_area1" title="국가" class="select_box">
-							<option value="">::선택하세요::</option>
-													<option value="대한민국">대한민국</option>
-												</select>
-					</dd>
-				</dl>
-			</td>
-		</tr>
-		<tr>
-			<td colspan="2">
-				<dl>
-					<dt><label for="m_area2">시/도</label></dt>
-					<dd>
-						<select name="m_area2" id="m_area2" title="시/도" class="select_box">
-							<option value="">::선택하세요::</option>
-						</select>
-					</dd>
-				</dl>
-			</td>
-		</tr>		
-	</tbody>
-	</table>
-
-	<div class="btn_w">
-		<input type="button" value="다음단계" class="con_btn sky fr" id="jsBtnNext5">
-		<input type="button" value="이전단계" class="con_btn mint fl jsBtnPrev">
-	</div>
-
-
-</div>
-
-
-
-<div class="jsMember" style="display:none;">
-	<table summary="설문조사를 받을 이메일 입력 폼 테이블 입니다." class="table3">
-	<caption>설문조사 이메일 입력</caption>
-	<colgroup>
-		<col width="50%">
-		<col width="50%">
-	</colgroup>
-	<tbody>
-		<tr>
-			<td colspan="2">
-				<dl>
-					<dt><label for="m_email1">이메일주소</label></dt>
-					<dd>
-						<div class="email">
-							<ul>
-								<li><input id="m_email1" name="m_email1" type="text" class="input_box"></li>
-								<li class="hyphen">@</li>
-								<li>
-									<select name="m_email2" id="m_email2" title="이메일 주소" class="select_box">
-										<option value="">직접입력</option>
-										<option value="naver.com">naver.com</option>
-										<option value="daum.net">daum.net</option>
-										<option value="hanmail.net">hanmail.net</option>
-										<option value="nate.com">nate.com</option>
-										<option value="empas.com">empas.com</option>
-										<option value="gmail.com">gmail.com</option>
-
-									</select>
-								</li>
-							</ul>
+			<tr>
+				<td colspan="2">
+						<div class="custom-radiobtn-sprite">
+							<input id="m_sex_1" name="m_gender" type="radio" value="1"><label class="male" for="m_sex_1" >Male</label>
+							<input id="m_sex_2" name="m_gender" type="radio" value="2"><label class="female" for="m_sex_2">Female</label>
 						</div>
-					</dd>
-				</dl>
-			</td>
-		</tr>
-		<tr>
-			<td colspan="2">
-				<dl>
-					<dt><label for="m_email">이메일 주소 확인</label><span style="font-size:11px; color:#b33336;" id="jsNoticeEmail">&nbsp;&nbsp;(이메일 도메인을 직접입력하세요.)</span></dt>
-					<dd><input id="m_email" name="m_email" type="text" class="input_box"></dd>
-				</dl>
-			</td>
-		</tr>
-	</tbody>
-	</table>
+				</td>
+			</tr>
+			</tbody>
+		</table>
 
-	<div class="btn_w">
-		<input type="submit" value="회원가입완료" class="con_btn sky fr">
-		<input type="button" value="이전단계" class="con_btn mint fl jsBtnPrev">
-	</div>
+		<div class="btn_w">
+<!-- 			<input type="button" value="다음단계" class="con_btn sky fr" id="jsBtnNext2"> -->
+			<Button type="button" value="" class="con_sbtn navy mt10">회원가입</Button>
+		</div>
 </div>
+
+
 
 
 

@@ -6,19 +6,7 @@
 
 	<title>설문조사사이트 패널퀸</title>
 	
-	
 
-<!-- 	<link rel="stylesheet" type="text/css" href="http://www.panel-queen.com/common/css/all.css"> -->
-<!-- 	<link rel="stylesheet" type="text/css" href="http://www.panel-queen.com/common/css/head_layout.css"> -->
-<!-- 	<link rel="stylesheet" type="text/css" href="http://www.panel-queen.com/common/css/foot_layout.css"> -->
-<!-- 	<link rel="stylesheet" type="text/css" href="http://www.panel-queen.com/common/css/main_layout.css"> -->
-<!-- 	<link rel="stylesheet" type="text/css" href="http://www.panel-queen.com/common/css/menu_bubble.css"> -->
-<!-- 	<link rel="stylesheet" type="text/css" href="http://www.panel-queen.com/common/css/menu_bubble_r.css">	 -->
-<!-- 	<link rel="stylesheet" type="text/css" href="http://www.panel-queen.com/common/css/owl.carousel.min.css"> -->
-
-	
-	
-	
 	
 	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
 </head>
