@@ -21,4 +21,9 @@ public class MemberDAOImpl implements MemberDAO {
 		return memberVO;
 	}
 
+	@Override
+	public void insertMember(MemberVO member) {
+		session.insert(namespace + ".join", member);
+	}
+
 }
