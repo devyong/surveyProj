@@ -36,16 +36,16 @@
 	
 	<!-- 인터셉터 빈 생 -->
 
-	<beans:bean id="authenticationInterceptor" class="com.survey.interceptor.AuthenticationInterceptor" />
-	<interceptors>
-		<interceptor>
-			<mapping path="/content/**"/>
+<!-- 	<beans:bean id="authenticationInterceptor" class="com.survey.interceptor.AuthenticationInterceptor" /> -->
+<!-- 	<interceptors> -->
+<!-- 		<interceptor> -->
+<!-- 			<mapping path="/content/**"/> -->
 <!-- 			<mapping path="/admin/**"/> -->
-			<exclude-mapping path="/content/list"/>
-			<beans:ref bean="authenticationInterceptor"/>
-		</interceptor>
+<!-- 			<exclude-mapping path="/content/list"/> -->
+<!-- 			<beans:ref bean="authenticationInterceptor"/> -->
+<!-- 		</interceptor> -->
 
 		
-	</interceptors>
+<!-- 	</interceptors> -->
 	
 </beans:beans>

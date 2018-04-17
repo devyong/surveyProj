@@ -8,7 +8,12 @@
 	<link rel="stylesheet" type="text/css" href="http://www.panel-queen.com/common/css/menu_bubble_r.css">	
 	<link rel="stylesheet" type="text/css" href="http://www.panel-queen.com/common/css/owl.carousel.min.css">
 <div id="container" class="sub">
+						
 			
+			
+			${surveyVO.sv_hits }
+			${surveyVO.sv_count}
+			${surveyVO.sv_state}
 			<!--컨텐츠영역-->
 			<div id="contents">
 				<!--인쇄영역-->
@@ -42,14 +47,14 @@
 				<tr>
 					<th scope="col">
 						<dl class="title">
-							<dt>1</dt>
-							<dd>과일 좋아해?</dd>
+							<dt>${surveyVO.sv_id }</dt>
+							<dd>${surveyVO.sv_title }</dd>
 							<dd class="code"></dd>
 						</dl>
 						<ul class="pt">
-							<li class="pt02">운영자</li>
-							<li class="pt01 pt_none">2018-01-10</li>
-							<li class="pt03">2018-01-30</li>
+							<li class="pt02">${surveyVO.sv_writer }</li>
+							<li class="pt01 pt_none">${surveyVO.sv_startdate }</li>
+							<li class="pt03">${surveyVO.sv_enddate }</li>
 						</ul>
 					</th>
 				</tr>

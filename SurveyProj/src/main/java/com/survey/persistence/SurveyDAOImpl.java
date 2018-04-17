@@ -13,8 +13,8 @@ import com.survey.domain.SurveyVO;
 @Repository
 public class SurveyDAOImpl implements SurveyDAO {
 
-	private final String namespace = "com.survey.mapper.AdminMapper";
-//	private static String namespace = "com.survey.mapper.ContentMapper";
+//	private final String namespace = "com.survey.mapper.AdminMapper";
+	private static String namespace = "com.survey.mapper.ContentMapper";
 	
 	@Autowired
 	SqlSession sqlSession;
@@ -32,7 +32,7 @@ public class SurveyDAOImpl implements SurveyDAO {
 	
 	@Override
 	public SurveyVO read(Integer sv_id) throws Exception {
-		return sqlSession.selectOne(namespace + ".read", sv_id); 
+		return sqlSession.selectOne(namespace + ".readSurvey", sv_id); 
 	}
 
 }

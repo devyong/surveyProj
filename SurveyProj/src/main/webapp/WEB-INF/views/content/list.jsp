@@ -50,7 +50,7 @@
 		<tbody>
 			<tr class="">
 				<td>3999<br></td>
-				<td id='title'><a style="" href="/content/1">당신은 어떤 과일을 좋아 하시나요?</a></td>
+				<td id='title'><a style="" href="/content/read/1">당신은 어떤 과일을 좋아 하시나요?</a></td>
 				<td><span class="">운영자</span></td>
 				<td><span class="">2018-04-10</span></td>
 				<td><span class="">2018-04-25</span></td>
@@ -102,9 +102,9 @@ $(".jsTemp7").each(function(){
 $(function (){
 	$('#title').click(function (e){
 		alert("타이틀 눌럿엉")
-		e.preventDefault();
-		var addr = $(this).children("a").attr("href");
-		location.href(addr);
+// 		e.preventDefault();
+// 		var addr = $(this).children("a").attr("href");
+// 		location.href(addr);
 	})
 })
 </script>

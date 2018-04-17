@@ -1,15 +1,24 @@
 package com.survey.controller;
 
+import javax.inject.Inject;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.survey.persistence.SurveyService;
+
 @Controller
 public class ContentController {
+	
+	@Inject
+	private SurveyService service;
+	
 
 	private static final Logger logger = LoggerFactory.getLogger(ContentController.class);
 	
@@ -24,10 +33,10 @@ public class ContentController {
 	
 	
 
-	@RequestMapping(value="/content/read", method=RequestMethod.GET)
-	public String readPage(@RequestParam("sv_id") int sv_id, Model model) {
+	@RequestMapping(value="/content/read/{sv_id}", method=RequestMethod.GET)
+	public String readPage(@PathVariable("sv_id") int sv_id, Model model) throws Exception {
 		logger.info("Content Read Page..........");
-		
+		model.addAttribute(service.read(sv_id));
 		
 		return "content.read";
 	}
