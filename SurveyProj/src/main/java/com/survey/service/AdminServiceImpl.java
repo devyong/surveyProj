@@ -15,7 +15,7 @@ import com.survey.persistence.SurveyListDAO;
 @Service
 public class AdminServiceImpl implements AdminService {
 
-	@Autowired
+	@Inject
 	SurveyDAO sv_dao;
 	
 	@Inject
