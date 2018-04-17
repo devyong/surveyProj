@@ -9,9 +9,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
-import com.survey.domain.Criteria;
-import com.survey.domain.PageMaker;
 import com.survey.persistence.SurveyService;
 
 @Controller
@@ -25,17 +24,9 @@ public class ContentController {
 	
 
 	@RequestMapping(value="/content/list", method=RequestMethod.GET)
-	public String listPage(Criteria cri, Model model) throws Exception {
+	public String listPage(Model model) {
 		logger.info("Content List Page..........");
 		
-		model.addAttribute("list", service.listPage(cri));
-		PageMaker pageMaker = new PageMaker();
-		pageMaker.setCri(cri);
-
-		pageMaker.setTotalCount(service.listCount(cri));
-		
-		model.addAttribute("pageMaker",pageMaker);
-		System.out.println("pageMaker>>"+pageMaker.toString()+"cri>>>"+cri.toString());
 		
 		return "content.list";
 	}

@@ -26,5 +26,13 @@ public class MemberDAOImpl implements MemberDAO {
 		session.insert(namespace + ".join", member);
 	}
 
+	@Override
+	public MemberVO selectId(String m_id) {
+		MemberVO member = session.selectOne(namespace + ".checkid", m_id);
+		
+		return member;
+	}
+	
+	
 
 }

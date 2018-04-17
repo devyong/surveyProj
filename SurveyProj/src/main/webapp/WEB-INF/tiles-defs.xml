@@ -6,6 +6,7 @@
 <tiles-definitions>
 	<definition name="content.enter" template="/WEB-INF/views/content/enter.jsp" />
 	<definition name="admin.register" template="/WEB-INF/views/admin/register.jsp" />
+	<definition name="ajax.ajax" template="/WEB-INF/views/myajax.jsp" />
 
 	<definition name="home.*" template="/WEB-INF/views/inc/layout.jsp">
 		<put-attribute name="header" value="/WEB-INF/views/inc/header.jsp" />

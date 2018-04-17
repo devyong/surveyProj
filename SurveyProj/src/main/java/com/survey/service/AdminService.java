@@ -7,5 +7,4 @@ import com.survey.domain.SurveyVO;
 
 public interface AdminService {
 	public void addSurvey(SurveyVO survey, List<SurveyListVO> list);
-	
 }
