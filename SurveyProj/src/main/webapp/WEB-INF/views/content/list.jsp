@@ -50,7 +50,7 @@
 		<tbody>
 			<tr class="">
 				<td>3999<br></td>
-				<td id='title'><a style="" href="/content/read/1">당신은 어떤 과일을 좋아 하시나요?</a></td>
+				<td><a style="" href="/content/read/1"  id='title'>당신은 어떤 과일을 좋아 하시나요?</a></td>
 				<td><span class="">운영자</span></td>
 				<td><span class="">2018-04-10</span></td>
 				<td><span class="">2018-04-25</span></td>
