@@ -235,3 +235,24 @@
 			</div>
 			<!--//컨텐츠영역-->
 		</div>
+		
+<script>
+	// 아이디 중복확인
+	$("#jsBtnIdChk").click(function() {
+		var id = $("#m_id").val();
+		
+		$.ajax({
+			url:"/member/checkid",
+			method: "GET",
+			data: {"id" : id},
+			dataType: "JSON",
+			success: function(data) {
+				if (data.result == "가능") {
+					alert("이 아이디는 사용 가능합니다.");
+				} else{
+					alert("이미 사용중인 아이디 입니다.")
+				}
+			}
+		});
+	});
+</script>
