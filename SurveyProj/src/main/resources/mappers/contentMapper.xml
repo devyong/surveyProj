@@ -3,9 +3,8 @@
  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.survey.mapper.ContentMapper">
-	<select id="readSurvey" resultType="com.survey.domain.SurveyVO">
-		select sv_id, sv_title,
-		sv_writer, sv_startdate, sv_enddate, sv_hits, sv_count, sv_state
+	<select id="readSurvey" resultType="SurveyVO">
+		select sv_id, sv_title, sv_writer, sv_startdate, sv_enddate, sv_hits, sv_count, sv_state 
 		from survey where sv_id = #{sv_id}
 	</select>
 

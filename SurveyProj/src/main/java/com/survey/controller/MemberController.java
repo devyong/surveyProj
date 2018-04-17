@@ -33,7 +33,7 @@ public class MemberController {
 	public String join(Model model, MemberVO member) {
 		service.join(member);
 		
-		// íšŒì›ê°€ì… í›„ ë¡œê·¸ì¸ í˜ì´ì§€ë¡œ
+		// ?šŒ?›ê°??… ?›„ ë¡œê·¸?¸ ?˜?´ì§?ë¡?
 		return "redirect:/";
 	}
 }
