@@ -45,7 +45,26 @@ public class ContentController {
 	@RequestMapping(value="/content/read/{sv_id}", method=RequestMethod.GET)
 	public String readPage(@PathVariable("sv_id") int sv_id, Model model) throws Exception {
 		logger.info("Content Read Page..........");
-		model.addAttribute(service.read(sv_id));
+				
+//		String m_id = "kim@naver.com";
+		String m_id = "han@naver.com";
+		
+//		String m_id = session.Member.getM_id();
+		
+		model.addAttribute(sService.read(sv_id));
+		
+//		logger.info("srservice 들가기전");
+		
+		
+		Integer isParticipate = sRService.isParticipate(sv_id, m_id);
+		if (isParticipate != null) {
+			model.addAttribute("isParticipate", isParticipate);
+		} 
+		
+//		logger.info("srservice 나옴");
+//		
+//		logger.info("isparticipate 저장전");
+//		logger.info("isparticipate 저장");
 		
 		return "content.read";
 	}

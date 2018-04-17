@@ -3,6 +3,7 @@
  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.survey.mapper.SurveyEnterMapper">
+<<<<<<< HEAD
 
 	<select id="enterTitle" resultType="EnterTitleVO">
 		select sv_id, sv_title from survey where sv_id = #{sv_id}
@@ -12,4 +13,10 @@
 		select list_id, list_content from survey_list where sv_id = #{sv_id}
 	</select>
 	 
+=======
+	<select id="isParticipate" parameterType="hashmap" resultType="int">
+		select sl.list_id from survey_result sr join survey_list sl on sr.list_id = sl.list_id
+		where sv_id = ${sv_id} and m_id = #{m_id}
+	</select>
+>>>>>>> branch 'master' of https://github.com/devyong/surveyProj.git
 </mapper>

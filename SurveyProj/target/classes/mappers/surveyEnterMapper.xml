@@ -11,5 +11,9 @@
 	<select id="enterList" resultType="EnterListVO">
 		select list_id, list_content from survey_list where sv_id = #{sv_id}
 	</select>
-	 
+	
+	 	<select id="isParticipate" parameterType="hashmap" resultType="int">
+		select sl.list_id from survey_result sr join survey_list sl on sr.list_id = sl.list_id
+		where sv_id = ${sv_id} and m_id = #{m_id}
+	</select>
 </mapper>
