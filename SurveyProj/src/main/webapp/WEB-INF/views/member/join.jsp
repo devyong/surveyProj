@@ -245,9 +245,9 @@
 			url:"/member/checkid",
 			method: "GET",
 			data: {"id" : id},
-			dataType: "JSON",
+// 			dataType: "JSON",
 			success: function(data) {
-				if (data.result == "가능") {
+				if (data.trim() == "가능") {
 					alert("이 아이디는 사용 가능합니다.");
 				} else{
 					alert("이미 사용중인 아이디 입니다.")

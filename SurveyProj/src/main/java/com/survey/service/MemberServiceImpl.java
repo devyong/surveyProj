@@ -23,4 +23,11 @@ public class MemberServiceImpl implements MemberService {
 		dao.insertMember(member);
 	}
 
+	@Override
+	public MemberVO checkid(String m_id) {
+		return dao.selectId(m_id);
+
+	}
+
+	
 }
