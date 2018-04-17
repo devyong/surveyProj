@@ -38,9 +38,11 @@ public class AdminController {
 	}
 	
 	@RequestMapping(value = "/admin/register", method = RequestMethod.POST)
-	public String registerSubmit(RedirectAttributes rttr , String sv_title
+	public String registerSubmit(RedirectAttributes rttr ,@RequestParam("sv_title") String sv_title
 			, @RequestParam("list_content") String[] list_content
 			, @RequestParam("sv_enddate") String sv_enddate) {
+		
+		
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		
 		SurveyVO survey = new SurveyVO();
