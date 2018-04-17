@@ -25,7 +25,7 @@
 	</div>
 	<div class="s0901">
 
-<form name="loginFrm" id="loginFrm" method="post" action="">
+<form name="loginFrm" id="loginFrm" method="post" action="/login">
 <input type="hidden" name="prepage" value="/content/01_01.php">
 		<table summary="설문조사를 받을 이메일 입력 폼 테이블 입니다." class="table3">
 			<caption>설문조사 이메일 입력</caption>
@@ -46,7 +46,7 @@
 					<td colspan="2">
 						<dl>
 							<dt><label for="m_pwd">비밀번호</label></dt>
-							<dd><input id="m_pwd" name="m_pwd" type="password" class="input_box"></dd>
+							<dd><input id="m_pwd" name="m_pw" type="password" class="input_box"></dd>
 						</dl>
 					</td>
 				</tr>
