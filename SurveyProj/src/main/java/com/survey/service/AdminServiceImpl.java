@@ -7,7 +7,6 @@ import javax.inject.Inject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.survey.domain.Criteria;
 import com.survey.domain.SurveyListVO;
 import com.survey.domain.SurveyVO;
 import com.survey.persistence.SurveyDAO;
@@ -35,7 +34,5 @@ public class AdminServiceImpl implements AdminService {
 		list_dao.insertList(list);
 
 	}
-	
-
 
 }
