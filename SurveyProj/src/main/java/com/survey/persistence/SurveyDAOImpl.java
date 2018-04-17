@@ -4,10 +4,13 @@ package com.survey.persistence;
 	
 	
 	
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.survey.domain.Criteria;
 import com.survey.domain.SurveyVO;
 
 @Repository
@@ -35,4 +38,14 @@ public class SurveyDAOImpl implements SurveyDAO {
 		return sqlSession.selectOne(namespace + ".readSurvey", sv_id); 
 	}
 
+	@Override
+	public List<SurveyVO> listPage(Criteria cri) throws Exception {
+		return sqlSession.selectList(namespace+".listPage",cri);
+	}
+
+	@Override
+	public int countPaging(Criteria cri) throws Exception {
+		return sqlSession.selectOne(namespace+".countPaging", cri);
+	}
+	
 }

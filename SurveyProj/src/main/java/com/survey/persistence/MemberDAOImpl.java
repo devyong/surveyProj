@@ -26,4 +26,5 @@ public class MemberDAOImpl implements MemberDAO {
 		session.insert(namespace + ".join", member);
 	}
 
+
 }
