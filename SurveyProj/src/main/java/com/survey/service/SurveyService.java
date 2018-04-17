@@ -1,4 +1,4 @@
-package com.survey.persistence;
+package com.survey.service;
 
 import com.survey.domain.SurveyVO;
 

@@ -13,7 +13,7 @@ import com.survey.domain.SurveyVO;
 @Repository
 public class SurveyDAOImpl implements SurveyDAO {
 
-//	private final String namespace = "com.survey.mapper.AdminMapper";
+	private final String adminNamespace = "com.survey.mapper.AdminMapper";
 	private static String namespace = "com.survey.mapper.ContentMapper";
 	
 	@Autowired
@@ -21,12 +21,12 @@ public class SurveyDAOImpl implements SurveyDAO {
 	
 	@Override
 	public void insertSurvey(SurveyVO survey) {
-		sqlSession.insert(namespace + ".insertSurvey", survey);
+		sqlSession.insert(adminNamespace + ".insertSurvey", survey);
 	}
 
 	@Override
 	public int selectLastSv_id() {
-		SurveyVO sv = sqlSession.selectOne(namespace + ".selectLastSv_id");
+		SurveyVO sv = sqlSession.selectOne(adminNamespace + ".selectLastSv_id");
 		return sv.getSv_id();
 	}
 	

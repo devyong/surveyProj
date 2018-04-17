@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.survey.mapper.SurveyEnterMapper">
+	<select id="isParticipate" parameterType="hashmap" resultType="int">
+		select sl.list_id from survey_result sr join survey_list sl on sr.list_id = sl.list_id
+		where sv_id = ${sv_id} and m_id = #{m_id}
+	</select>
+</mapper>
