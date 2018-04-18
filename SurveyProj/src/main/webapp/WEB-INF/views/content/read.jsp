@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <link rel="stylesheet" type="text/css"
 	href="http://www.panel-queen.com/common/css/all.css">
@@ -15,7 +16,6 @@
 	href="http://www.panel-queen.com/common/css/menu_bubble_r.css">
 <link rel="stylesheet" type="text/css"
 	href="http://www.panel-queen.com/common/css/owl.carousel.min.css">
-<div id="container" class="sub">
 <script>
 	$(function (){
 		if(${isParticipate != null}){
@@ -24,6 +24,7 @@
 		}
 	})
 </script>
+<div id="container" class="sub">
 
 
 
@@ -49,8 +50,7 @@
 				<script type="text/javascript"
 					src="/content/board/nninc_photo/js/lightbox.js"></script>
 
-				상태 : ${surveyVO.sv_state}
-
+				
 				<!-- 보기 -->
 				<div id="board" style="width: 100%;">
 
@@ -88,12 +88,6 @@
 								<tr>
 									<td>
 
-
-
-
-
-
-
 										<p>
 											<span style="font-size: 10pt;"></span>&nbsp;
 										</p>
@@ -101,11 +95,6 @@
 											<a href="/content/enter" target="_blank" class="con_btn navy start">설문시작하기</a>
 											<a href="/content/enter" target="_blank" class="con_btn navy modify" style="display: none;">설문수정하기</a>
 										</div>
-
-
-
-
-
 
 									</td>
 								</tr>
