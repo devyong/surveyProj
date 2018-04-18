@@ -31,8 +31,12 @@ public class ContentController {
 	@RequestMapping(value="/content/list", method=RequestMethod.GET)
 	public String listPage(Model model) {
 		logger.info("Content List Page..........");
-		
-		
+		try {
+			model.addAttribute("list", sService.listSurvey());
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}		
 		return "content.list";
 	}
 	
@@ -46,7 +50,7 @@ public class ContentController {
 		String m_id = "han@naver.com";
 		
 //		String m_id = session.Member.getM_id();
-		
+		sService.addCount(sv_id);
 		model.addAttribute(sService.read(sv_id));
 		
 //		logger.info("srservice 들가기전");

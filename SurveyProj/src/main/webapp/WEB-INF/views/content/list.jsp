@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt"  uri="http://java.sun.com/jsp/jstl/fmt"%>
 <link rel="stylesheet" type="text/css" href="/resources/css/style_list.css">
 <div id="container" class="sub">
 
@@ -36,28 +38,37 @@
 		</colgroup>
 		<thead>
 			<tr>
-				<th scope="col">Bno</th>
-				<th scope="col">Title</th>
-				<th scope="col">writer</th>
-				<th scope="col">StartDate</th>
-				<th scope="col">EndDate</th>
-				<th scope="col">Hits</th>
-				<th scope="col">Count</th>
-				<th scope="col">State
-                </th>
+				<th scope="col">설문조사 번호</th>
+				<th scope="col">설문조사 제목</th>
+				<th scope="col">설문조사 작성자</th>
+				<th scope="col">설문조사 시작일</th>
+				<th scope="col">설문조사 종료일</th>
+				<th scope="col">설문조사 조회수</th>
+				<th scope="col">설문조사 참여수</th>
+				<th scope="col">설문조사 상태</th>
 			</tr>
 		</thead>
 		<tbody>
-			<tr class="">
-				<td>3999<br></td>
-				<td><a style="" href="/content/read/1"  id='title'>당신은 어떤 과일을 좋아 하시나요?</a></td>
-				<td><span class="">운영자</span></td>
-				<td><span class="">2018-04-10</span></td>
-				<td><span class="">2018-04-25</span></td>
-				<td><span class="pt c_green">100</span></td>
-				<td><span class="pt c_yellow">30</span></td>
-				<td><span class="pt c_blue">진행중</span></td>
-			</tr>
+			<c:forEach items="${list }" var="surveyVO">
+				<tr class="">
+					<td>${surveyVO.sv_id }</td>
+					<td><a href="/content/read/${surveyVO.sv_id }">${surveyVO.sv_title }</a></td>
+					<td><span>${surveyVO.sv_writer }</span></td>
+					<td><span><fmt:formatDate value="${surveyVO.sv_startdate }" pattern="yy/MM/dd"/></span></td>
+					<td><span><fmt:formatDate value="${surveyVO.sv_enddate }" pattern="yy/MM/dd"/></span></td>
+					<td><span class="pt c_green">${surveyVO.sv_hits }</span></td>
+					<td><span class="pt c_yellow">${surveyVO.sv_count }</span></td>
+					<td><span class="pt c_blue">${surveyVO.sv_state }</span></td>
+<!-- 				<td>3999<br></td> -->
+<!-- 				<td><a style="" href="/content/read/1"  id='title'>당신은 어떤 과일을 좋아 하시나요?</a></td> -->
+<!-- 				<td><span class="">운영자</span></td> -->
+<!-- 				<td><span class="">2018-04-10</span></td> -->
+<!-- 				<td><span class="">2018-04-25</span></td> -->
+<!-- 				<td><span class="pt c_green">100</span></td> -->
+<!-- 				<td><span class="pt c_yellow">30</span></td> -->
+<!-- 				<td><span class="pt c_blue">진행중</span></td> -->
+				</tr>
+				</c:forEach>				
 			<tr class="empty">
 					<td colspan="5"></td>
 			</tr>

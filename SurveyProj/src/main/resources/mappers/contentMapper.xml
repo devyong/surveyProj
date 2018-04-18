@@ -7,4 +7,12 @@
 		select sv_id, sv_title, sv_writer, sv_startdate, sv_enddate, sv_hits, sv_count, sv_state 
 		from survey where sv_id = #{sv_id}
 	</select>
+	<select id="listSurvey" resultType="SurveyVO">
+		select sv_id, sv_title, sv_writer, sv_startdate, sv_enddate, sv_hits, sv_count, sv_state 
+		from survey
+	</select>
+	<update id="addCount" >
+		update survey set sv_hits = sv_hits + 1 where sv_id = #{sv_id}
+	</update>
+	
 </mapper>
