@@ -119,6 +119,7 @@
 				<!-- //리스트 -->
 
 				<script type="text/javascript">
+				
 					$(".jsTemp7").each(
 							function() {
 								$(this).children("td").css("background-color",
@@ -131,6 +132,10 @@
 							// 		e.preventDefault();
 							// 		var addr = $(this).children("a").attr("href");
 							// 		location.href(addr);
+						})
+						$('.board_button').click(function(){
+							$(location).attr('href', "/admin/register");
+
 						})
 					})
 				</script>

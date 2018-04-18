@@ -77,4 +77,19 @@ public class ContentController {
 		
 		return "content.enter";
 	}
+
+	@RequestMapping(value="/content/result/{sv_id}", method=RequestMethod.GET)
+	public String resultPage(@PathVariable("sv_id") int sv_id, Model model) {
+		logger.info("Content Result Page..........");
+		try {
+			model.addAttribute(sService.read(sv_id));
+			model.addAttribute("listResult", sRService.listResult(sv_id));
+			model.addAttribute("total", sRService.listTotal(sv_id));
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return "content.result";
+	}
 }

@@ -7,12 +7,25 @@
 		select sv_id, sv_title, sv_writer, sv_startdate, sv_enddate, sv_hits, sv_count, sv_state 
 		from survey where sv_id = #{sv_id}
 	</select>
+	
 	<select id="listSurvey" resultType="SurveyVO">
 		select sv_id, sv_title, sv_writer, sv_startdate, sv_enddate, sv_hits, sv_count, sv_state 
 		from survey
 	</select>
+	
 	<update id="addCount" >
 		update survey set sv_hits = sv_hits + 1 where sv_id = #{sv_id}
 	</update>
+	
+	<select id="listResult" resultType="hashmap" >
+		select count(list_content) cnt, list_content from survey_list sl 
+		join survey_result sr on sr.list_id = sl.list_id 
+		where sv_id = #{sv_id} group by list_content
+	</select>
+	<select id="listTotal" resultType="Integer">
+		select count(list_content) from survey_list sl 
+		join survey_result sr on sr.list_id = sl.list_id 
+		where sv_id = #{sv_id}
+	</select>
 	
 </mapper>
