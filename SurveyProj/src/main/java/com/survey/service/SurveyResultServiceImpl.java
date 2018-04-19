@@ -8,6 +8,7 @@ import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
 
+import com.survey.domain.ResultVO;
 import com.survey.persistence.SurveyResultDAO;
 
 @Service
@@ -23,7 +24,7 @@ public class SurveyResultServiceImpl implements SurveyResultService {
 	}
 
 	@Override
-	public List<HashMap<String, Integer>> listResult(int sv_id) throws Exception {
+	public List<ResultVO> listResult(int sv_id) throws Exception {
 		return dao.listResult(sv_id);
 	}
 

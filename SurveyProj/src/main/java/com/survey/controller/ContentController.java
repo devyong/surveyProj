@@ -1,10 +1,15 @@
 package com.survey.controller;
 
+import java.util.HashMap;
+import java.util.List;
+
 import javax.inject.Inject;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpRequest;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -83,7 +88,7 @@ public class ContentController {
 		logger.info("Content Result Page..........");
 		try {
 			model.addAttribute(sService.read(sv_id));
-			model.addAttribute("listResult", sRService.listResult(sv_id));
+			
 			model.addAttribute("total", sRService.listTotal(sv_id));
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -91,5 +96,6 @@ public class ContentController {
 		}
 		
 		return "content.result";
-	}
+	}	
+	
 }

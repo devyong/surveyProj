@@ -17,8 +17,8 @@
 		update survey set sv_hits = sv_hits + 1 where sv_id = #{sv_id}
 	</update>
 	
-	<select id="listResult" resultType="hashmap" >
-		select count(list_content) cnt, list_content from survey_list sl 
+	<select id="listResult" resultType="ResultVO" >
+		select list_content label, count(list_content) y from survey_list sl 
 		join survey_result sr on sr.list_id = sl.list_id 
 		where sv_id = #{sv_id} group by list_content
 	</select>

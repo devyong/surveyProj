@@ -9,6 +9,8 @@ import javax.inject.Inject;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
+import com.survey.domain.ResultVO;
+
 @Repository
 public class SurveyResultDAOImpl implements SurveyResultDAO {
 
@@ -30,7 +32,9 @@ public class SurveyResultDAOImpl implements SurveyResultDAO {
 	}
 
 	@Override
-	public List<HashMap<String, Integer>> listResult(int sv_id) throws Exception {
+	public List<ResultVO> listResult(int sv_id) throws Exception {
+		HashMap<String, Integer> a = new HashMap<>();
+		
 		return session.selectList(contentNamespace + ".listResult", sv_id);
 	}
 

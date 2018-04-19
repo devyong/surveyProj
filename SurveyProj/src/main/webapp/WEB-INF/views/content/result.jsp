@@ -5,7 +5,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %> 
 
 <!-- 통계 그래프용 -->
-
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 
 <link rel="stylesheet" type="text/css"
 	href="http://www.panel-queen.com/common/css/all.css">
@@ -24,43 +25,42 @@
 	
 	
 <script>
-	$(function (){
-		if(${isParticipate != null}){
-			$(".start").hide();
-			$('.modify').show();
-		}
+window.onload = function() {
+	var jsonData = $.ajax({
+        url: "/getResult/1",
+        dataType: "json",
+        async: false
+        }).responseText;
+	alert(jsonData);
+var chart = new CanvasJS.Chart("chartContainer", {
+	animationEnabled: true,
+	title: {
+		text: "Desktop Search Engine Market Share - 2016"
+	},
+	data: [{
+		type: "pie",
+		startAngle: 240,
+		yValueFormatString: "##0.00\"%\"",
+		indexLabel: "{\"label\"} {\"y\"}",
+		dataPoints: jsonData
+	}]
+});
+	alert("응");
+chart.render();
 
-	})
-	
+}
 </script>
-<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript">
-      google.charts.load('current', {'packages':['corechart']});
-      google.charts.setOnLoadCallback(drawChart);
+</head>
+<body>
+<div id="chartContainer" style="height: 300px; width: 100%;"></div>
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+</body>
 
-      function drawChart() {
-		
-        var data = google.visualization.arrayToDataTable([
-          ['Task', 'Hours per Day'],
-          ['Work',     11],
-          ['Eat',      2],
-          ['Commute',  2],
-          ['Watch TV', 2],
-          ['Sleep',    7]
-        ]);
-
-        var options = {
-          title: 'My Daily Activities'
-        };
-
-        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
-
-        chart.draw(data, options);
-      }
-    </script>
 
 
 <div id="container" class="sub">
+
+
 
 
 ${listResult }
@@ -160,6 +160,8 @@ ${total }
 						</div>
 					</div>
 					<!-- //버튼 -->
+					<div id="piechart">차트</div>
+					<input type="button" value="데이터호출" onclick="ajaxData();"/>
 
 
 					<!-- 설문조사 가이드 -->
