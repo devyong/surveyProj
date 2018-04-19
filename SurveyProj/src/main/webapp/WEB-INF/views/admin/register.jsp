@@ -9,17 +9,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 <body class="translate survey-body modern-browser" id="patas">
-  <!--<![endif]-->
 
-        
-
-    
-    
-    
-
-
-<!-- Textured Paper, Seamless Paper Texture and Escheresque are from subtlepatterns.com. Made available under CC BY-SA 3.0 License: http://creativecommons.org/licenses/by-sa/3.0/legalcode. -->
-<!-- You cannot remove or modify any notice of copyright, trademark or other proprietary right, or any other copyright management information or metadata from wherever it is embedded in the content. -->
 <article class="survey-page survey-page-white">
 
     <header class="survey-page-header">

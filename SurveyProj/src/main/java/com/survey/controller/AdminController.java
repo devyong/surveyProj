@@ -11,17 +11,18 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.survey.domain.SurveyAndListVO;
 import com.survey.domain.SurveyListVO;
 import com.survey.domain.SurveyVO;
 import com.survey.service.AdminService;
 
 @Controller
+@RequestMapping("/admin")
 public class AdminController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(AdminController.class);
@@ -30,14 +31,14 @@ public class AdminController {
 	AdminService service;
 	
 	
-	@RequestMapping(value = "/admin/register", method = RequestMethod.GET)
+	@RequestMapping(value = "/register", method = RequestMethod.GET)
 	public String register(Model model) {
 		logger.info("admin register !!!!");
 		
 		return "admin.register";
 	}
 	
-	@RequestMapping(value = "/admin/register", method = RequestMethod.POST)
+	@RequestMapping(value = "/register", method = RequestMethod.POST)
 	public String registerSubmit(RedirectAttributes rttr ,@RequestParam("sv_title") String sv_title
 			, @RequestParam("list_content") String[] list_content
 			, @RequestParam("sv_enddate") String sv_enddate) {
@@ -69,5 +70,19 @@ public class AdminController {
 		rttr.addFlashAttribute("result", "success");
 		
 		return "redirect:/content/list";
+	}
+	
+	
+	@RequestMapping(value = "/modify", method = RequestMethod.GET)
+	public String adminModify(int sv_id, Model model) {
+		// sv_id에 해당하는 타이틀 및 값 불러오기
+		logger.info("관리자가 수정 페이지 불러오기");
+		
+		
+		List<SurveyAndListVO> andList =  service.getSurveyContent(sv_id);
+		
+		model.addAttribute("andList", andList);
+		
+		return "admin.modify";
 	}
 }

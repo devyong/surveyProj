@@ -16,4 +16,11 @@
 	<select id="selectLastSv_id" resultType="SurveyVO">
 	select sv_id from survey where rownum = 1 order by sv_id desc
 	</select>
+	
+	<select id="selectSurveyAndList" resultType="SurveyAndListVO">
+	select * from survey s 
+	join survey_list l 
+	on s.SV_ID = l.SV_ID 
+	where s.sv_id = #{sv_id}
+	</select>
 </mapper>
