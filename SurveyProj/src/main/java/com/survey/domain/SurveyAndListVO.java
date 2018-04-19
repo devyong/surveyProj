@@ -1,12 +1,50 @@
 package com.survey.domain;
 
+import java.util.Date;
+
 public class SurveyAndListVO {
 	private int sv_id;
 	private String sv_title;
 	private String sv_writer;
 	private int list_id;
 	private String list_content;
+	private Date sv_startdate;
+	private Date sv_enddate;
+	private int sv_hits;
+	private int sv_count;
+	private String sv_state;
 	
+	
+	public Date getSv_startdate() {
+		return sv_startdate;
+	}
+	public void setSv_startdate(Date sv_startdate) {
+		this.sv_startdate = sv_startdate;
+	}
+	public Date getSv_enddate() {
+		return sv_enddate;
+	}
+	public void setSv_enddate(Date sv_enddate) {
+		this.sv_enddate = sv_enddate;
+	}
+	public int getSv_hits() {
+		return sv_hits;
+	}
+	public void setSv_hits(int sv_hits) {
+		this.sv_hits = sv_hits;
+	}
+	public int getSv_count() {
+		return sv_count;
+	}
+	public void setSv_count(int sv_count) {
+		this.sv_count = sv_count;
+	}
+	public String getSv_state() {
+		return sv_state;
+	}
+	public void setSv_state(String sv_state) {
+		this.sv_state = sv_state;
+	}
 	public int getSv_id() {
 		return sv_id;
 	}

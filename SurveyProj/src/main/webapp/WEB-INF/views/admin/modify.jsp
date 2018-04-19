@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -24,7 +25,7 @@
     </div>
 
     </header>
-    <div style="text-align: center;">관리자 페이지 (설문지 작성)</div>
+    <div style="text-align: center;">관리자 페이지 (설문지 수정)</div>
     <section class="survey-page-body">
 
         
@@ -40,17 +41,17 @@
         
         
             <fieldset class=" question-fieldset" aria-required="true" data-radio-button-group="">
-                
+                <c:set var="enddate"><fmt:formatDate value="${ andList[0].sv_enddate }" pattern="yyyy-MM-dd"/></c:set>
                 
                 <h4 class="question-title-container" id="question-title-291390016"> 
                 	<span> 타이틀  </span><input type="text" id="sv_title" name="sv_title" class="user-generated notranslate" value="${ andList[0].sv_title }"  style="width: 100%">
                 </h4>
                 <h4 class="question-title-container" id="question-title-291390016"> 
-                	<span> 종료날짜  </span><input type="text" id="sv_enddate" name="sv_enddate" class="user-generated notranslate" value="${ andList[0].sv_enddate }"  style="width: 100%">
+                	<span> 종료날짜  </span><input type="text" id="sv_enddate" name="sv_enddate" class="user-generated notranslate" value="${ enddate }" style="width: 100%">
                 </h4>
                 <div class="question-body clearfix notranslate ">
                     
-    
+
     
         <span> 선택지 (최대 10개) </span><span><a class="btn" onclick="optionPlus(this)"> 추가 </a></span> <span><a class="btn" onclick="optionMinus(this)"> 삭제 </a></span>
             <div id="select_box">
@@ -99,7 +100,7 @@
                 
                     <button class="btn small next-button survey-page-button user-generated notranslate" type="submit">
                         
-                        확인
+                        수정하기
                         
                     </button>
                 
