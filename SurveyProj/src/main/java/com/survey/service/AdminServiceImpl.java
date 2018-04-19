@@ -43,8 +43,13 @@ public class AdminServiceImpl implements AdminService {
 	@Override
 	public List<SurveyAndListVO> getSurveyContent(int sv_id) {
 		
-		
 		return andList_dao.selectSurveyAndList(sv_id);
+	}
+
+	@Override
+	public void modifySurveyAndList(List<SurveyAndListVO> andList) {
+		andList_dao.updateSurveyAndList(andList);
+		
 	}
 
 }

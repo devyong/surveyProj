@@ -31,7 +31,7 @@
         
 
         <form name="surveyForm" action="" method="post" novalidate="" data-survey-page-form="">
-            
+            <input type="hidden" name="sv_id" value="${andList[0].sv_id}">
             
                 <div class="questions clearfix">
 
@@ -53,7 +53,7 @@
                     
 
     
-        <span> 선택지 (최대 10개) </span><span><a class="btn" onclick="optionPlus(this)"> 추가 </a></span> <span><a class="btn" onclick="optionMinus(this)"> 삭제 </a></span>
+        <span> 선택지  </span><span></span>
             <div id="select_box">
 
 <c:forEach items="${ andList }" var="list">
@@ -65,6 +65,7 @@
             </span>
                 <span class="radio-button-label-text question-body-font-theme user-generated " id="radio-label-291390016_1985111560">
                     <input type="text" id="list_content" name="list_content" class="user-generated notranslate" value="${ list.list_content }"  style="width: 100%">
+					<input type="hidden" name="list_id" value="${ list.list_id }">
                 </span>
         </label>
     </div></div>

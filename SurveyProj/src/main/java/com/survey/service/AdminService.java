@@ -10,4 +10,6 @@ public interface AdminService {
 	public void addSurvey(SurveyVO survey, List<SurveyListVO> list);
 	
 	public List<SurveyAndListVO> getSurveyContent(int sv_id);
+	
+	public void modifySurveyAndList(List<SurveyAndListVO> andList);
 }

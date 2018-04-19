@@ -3,6 +3,7 @@ package com.survey.controller;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -11,6 +12,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -84,5 +86,40 @@ public class AdminController {
 		model.addAttribute("andList", andList);
 		
 		return "admin.modify";
+	}
+	
+	
+	// 수정하기 버튼 눌렀을 때
+	@RequestMapping(value = "/modify", method = RequestMethod.POST)
+	public String adminModifyPost(@RequestParam("list_content") String[] list_content, @RequestParam("list_id") int[] list_id
+			, String sv_title, String sv_enddate, int sv_id
+			, Model model) {
+
+		System.out.println(sv_id);
+		
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		Date date = new Date();
+		try {
+			date = sdf.parse(sv_enddate);
+		} catch (ParseException e) {
+			System.out.println("날짜 변환중 오류@@");
+			e.printStackTrace();
+		}
+		
+		List<SurveyAndListVO> andList = new ArrayList<>();
+		for (int i = 0; i < list_content.length; i++) {
+			SurveyAndListVO vo = new SurveyAndListVO();
+			vo.setSv_title(sv_title);
+			vo.setSv_enddate(date);
+			vo.setList_content(list_content[i]);
+			vo.setSv_id(sv_id);
+			vo.setList_id(list_id[i]);
+			
+			andList.add(vo);
+		}
+		
+		service.modifySurveyAndList(andList);
+
+		return "redirect:/content/list";
 	}
 }
