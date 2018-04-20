@@ -19,11 +19,20 @@ public class AuthenticationInterceptor extends HandlerInterceptorAdapter{
 //		System.out.println(obj.toString());
 		boolean auth = true;
 		
+<<<<<<< HEAD
 		if (obj == null) {
 			System.out.println("무조건 널이징?");
 			auth = false;
 			response.sendRedirect("/");
 		}
+=======
+		
+//		if (obj == null) {
+//			auth = false;
+//			response.sendRedirect("/");
+//		}
+		
+>>>>>>> branch 'master' of https://github.com/devyong/surveyProj.git
 		
 		return auth;
 	}

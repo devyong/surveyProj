@@ -21,12 +21,10 @@
 		if(${isParticipate != null}){
 			$(".start").hide();
 			$('.modify').show();
+			
 		}
-	})
+	});
 </script>
-
-
-
 
 	<!--컨텐츠영역-->
 	<div id="contents">
@@ -54,7 +52,6 @@
 				<!-- 보기 -->
 				<div id="board" style="width: 100%;">
 
-
 					<div class="s0102">
 						<ul class="tip">
 							<!-- 			<li class="bu01">조사완료포인트</li> -->
@@ -68,7 +65,7 @@
 									<th scope="col">
 										<dl class="title">
 											<dt>${surveyVO.sv_id }</dt>
-											<dd>${surveyVO.sv_title }</dd>
+											<dd>${surveyVO.           }</dd>
 											<dd class="code"></dd>
 										</dl>
 										<ul class="pt">
@@ -87,10 +84,6 @@
 							<tbody>
 								<tr>
 									<td>
-
-
-
-
 
 
 
@@ -179,10 +172,6 @@
 						</ul>
 					</div>
 					<!--// 설문조사 가이드 -->
-
-
-
-
 
 
 					<!-- 댓글 -->
