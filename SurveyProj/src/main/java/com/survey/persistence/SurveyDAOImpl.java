@@ -4,6 +4,8 @@ package com.survey.persistence;
 	
 	
 	
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -33,6 +35,18 @@ public class SurveyDAOImpl implements SurveyDAO {
 	@Override
 	public SurveyVO read(Integer sv_id) throws Exception {
 		return sqlSession.selectOne(namespace + ".readSurvey", sv_id); 
+	}
+
+	@Override
+	public List<SurveyVO> listSurvey() throws Exception {
+		return sqlSession.selectList(namespace + ".listSurvey");
+		
+	}
+
+	@Override
+	public void addCount(Integer sv_id) throws Exception {
+		sqlSession.update(namespace + ".addCount", sv_id);
+		
 	}
 
 }

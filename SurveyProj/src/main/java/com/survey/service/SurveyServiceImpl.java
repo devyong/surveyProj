@@ -1,5 +1,7 @@
 package com.survey.service;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
@@ -17,6 +19,17 @@ public class SurveyServiceImpl implements SurveyService {
 		
 		
 		return dao.read(sv_id);
+	}
+
+	@Override
+	public List<SurveyVO> listSurvey() throws Exception {
+		return dao.listSurvey();
+	}
+
+	@Override
+	public void addCount(Integer sv_id) throws Exception {
+		dao.addCount(sv_id);
+		
 	}
 
 }

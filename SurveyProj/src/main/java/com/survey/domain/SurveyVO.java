@@ -7,12 +7,6 @@ public class SurveyVO {
 	private int sv_id;
 	private String sv_title;
 	private String sv_writer;
-	public String getSv_writer() {
-		return sv_writer;
-	}
-	public void setSv_writer(String sv_writer) {
-		this.sv_writer = sv_writer;
-	}
 	private Date sv_startdate;
 	private Date sv_enddate;
 	private int sv_hits;
@@ -30,6 +24,12 @@ public class SurveyVO {
 	}
 	public void setSv_title(String sv_title) {
 		this.sv_title = sv_title;
+	}
+	public String getSv_writer() {
+		return sv_writer;
+	}
+	public void setSv_writer(String sv_writer) {
+		this.sv_writer = sv_writer;
 	}
 	public Date getSv_startdate() {
 		return sv_startdate;

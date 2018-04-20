@@ -10,10 +10,12 @@
 				<div id="menu_navi">
 					<div id="menu_area">
 						<ul id="top1menu">
-							<li class="menu1"><a href="#"><img onmouseover="this.src='http://www.panel-queen.com/img/common/menu01_on.gif'" onmouseout="this.src='http://www.panel-queen.com/img/common/menu01.gif'" alt="마이페이지" src="http://www.panel-queen.com/img/common/menu01.gif"><span>마이페이지</span></a></li>
+<!-- 							<li class="menu1"><a href="#"><img onmouseover="this.src='http://www.panel-queen.com/img/common/menu01_on.gif'" onmouseout="this.src='http://www.panel-queen.com/img/common/menu01.gif'" alt="마이페이지" src="http://www.panel-queen.com/img/common/menu01.gif"><span>마이페이지</span></a></li> -->
 							<li class="menu2"><a href="/content/list"><img onmouseover="this.src='http://www.panel-queen.com/img/common/menu02_on.gif'" onmouseout="this.src='http://www.panel-queen.com/img/common/menu02.gif'" alt="설문조사참여" src="http://www.panel-queen.com/img/common/menu02.gif"><span>설문조사참여</span></a></li>
-							<li class="menu3"><a href="#"><img onmouseover="this.src='http://www.panel-queen.com/img/common/menu03_on.gif'" onmouseout="this.src='http://www.panel-queen.com/img/common/menu03.gif'" alt="공지사항" src="http://www.panel-queen.com/img/common/menu03.gif"><span>공지사항</span></a></li>
-							<li class="menu4"><a href="/logout"><img onmouseover="this.src='http://www.panel-queen.com/img/common/menu04_on.gif'" onmouseout="this.src='http://www.panel-queen.com/img/common/menu04.gif'" alt="설문조사문의" src="http://www.panel-queen.com/img/common/menu04.gif"><span>설문조사문의</span></a></li>
+<!-- 							<li class="menu3"><a href="#"><img onmouseover="this.src='http://www.panel-queen.com/img/common/menu03_on.gif'" onmouseout="this.src='http://www.panel-queen.com/img/common/menu03.gif'" alt="공지사항" src="http://www.panel-queen.com/img/common/menu03.gif"><span>공지사항</span></a></li> -->
+	<c:if test="${ authUser ne null }">
+							<li class="menu4"><a href="/logout"><img onmouseover="this.src='/resources/img/menu04_on.gif'" onmouseout="this.src='/resources/img/menu04.gif'" alt="설문조사문의" src="/resources/img/menu04.gif"><span>설문조사문의</span></a></li>
+	</c:if>
 						</ul>
 					</div>
 				</div>
