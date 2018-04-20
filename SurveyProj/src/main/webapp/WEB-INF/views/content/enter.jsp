@@ -23,8 +23,9 @@
 		<header class="survey-page-header"> </header>
 		<section class="survey-page-body">
 
-			<form name="surveyForm" action="/content/list" method="post">
+			<form name="surveyForm" action="" method="post">
 				<input type="hidden" value="${ enterTitleVO.sv_id }">
+				
 				<div class="questions clearfix">
 				
 					<div class="question-row clearfix &#10;">
@@ -48,10 +49,9 @@
 									<div>
 										<div class="answer-option-cell">
 
-											
 											<div class="radio-button-container " data-sm-radio-button="">
 											<c:forEach items="${ enterListVO }" var="enterList">
-											<div><label><input type="radio" name="choice" value="${ enterList.list_content }">${ enterList.list_content }</label></div>
+											<div><label><input type="radio" name="list_id" value="${ enterList.list_id }">${ enterList.list_content }</label></div>
 											
 											</c:forEach>
 											</div>
@@ -67,9 +67,7 @@
 				</div>
 
 				<div class="survey-submit-actions center-text clearfix">
-					<button class="btn okbtn btn-outline-primary"
-						
-						type="submit">확인</button>
+					<button class="btn okbtn btn-outline-primary" type="submit">확인</button>
 				</div>	
 			</form>
 			
@@ -78,10 +76,8 @@
 			<button class="btn"
 			onclick="location='/content/list'">목록</button>
 			
-			<button class="btn btn-outline-danger" 
-			onclick="location='/content/read'">취소</button>
-			
-			</div>	
+			</div>
+				
 		</section>
 
 	</article>
