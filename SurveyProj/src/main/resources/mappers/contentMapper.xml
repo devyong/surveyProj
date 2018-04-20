@@ -10,7 +10,7 @@
 	
 	<select id="listSurvey" resultType="SurveyVO">
 		select sv_id, sv_title, sv_writer, sv_startdate, sv_enddate, sv_hits, sv_count, sv_state 
-		from survey
+		from survey order by sv_id desc
 	</select>
 	
 	<update id="addCount" >

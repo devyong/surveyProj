@@ -104,14 +104,15 @@ public class ContentController {
 		
 		return "content.result";
 	}	
+	
 	@RequestMapping(value = "/content/enter", method = RequestMethod.POST)
-	public String postEnterpage(Model model, SurveyResultVO srvo, HttpSession session) throws Exception{
+	public String postEnterpage(Model model, SurveyResultVO srvo, HttpSession session, int sv_id) throws Exception{
 		MemberVO member = (MemberVO) session.getAttribute("authUser");
 		srvo.setM_id(member.getM_id());
 		etservice.resultInsert(srvo);
 		
 		
-		return "redirect:list";
+		return "redirect:/content/result/" + sv_id;
 	}
 	
 	
@@ -133,7 +134,7 @@ public class ContentController {
 	}
 	
 	@RequestMapping(value="/content/modify", method=RequestMethod.POST)
-	public String modifyPOST(Model model, SurveyResultVO srvo ) throws Exception {
+	public String modifyPOST(Model model, SurveyResultVO srvo, int sv_id ) throws Exception {
 		
 		logger.info("modify POST  list_id : " + srvo.getList_id());
 		
@@ -142,6 +143,6 @@ public class ContentController {
 		
 		etservice.resultUpdate(srvo);
 		
-		return "redirect:list";
+		return "redirect:/content/result/" + sv_id;
 	}
 }
