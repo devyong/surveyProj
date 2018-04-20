@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.survey.mapper.SurveyEnterMapper">
+				
+	<select id="enterTitle" resultType="EnterTitleVO">
+		select sv_id, sv_title from survey where sv_id = #{sv_id}
+	</select>
+			
+	<select id="enterList" resultType="EnterListVO">
+		select list_id, list_content from survey_list where sv_id = #{sv_id}
+	</select>
+			 
+	<select id="isParticipate" parameterType="hashmap" resultType="int">
+		select sl.list_id from survey_result sr join survey_list sl on sr.list_id = sl.list_id
+		where sv_id = ${sv_id} and m_id = #{m_id}
+	</select>
+					
+	<insert id="resultInsert">
+		insert into SURVEY_RESULT values (SEQ_RESULT.NEXTVAL, #{m_id}, #{list_id}, sysdate)
+	</insert>
+			
+	<update id="resultUpdate">
+	
+	update SURVEY_RESULT 
+	set LIST_ID = #{list_id} ,result_date = sysdate
+	where result_id = #{result_id}
+	
+	</update>
+	
+	<select id="selectEList" resultType="SurveyResultVO">
+	
+	select result_id , m_id, list_id
+	from SURVEY_RESULT
+	where result_id = #{result_id}
+	
+	</select>
+
+</mapper>

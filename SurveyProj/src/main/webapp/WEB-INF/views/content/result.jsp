@@ -2,6 +2,12 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %> 
+
+<!-- 통계 그래프용 -->
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
 <link rel="stylesheet" type="text/css"
 	href="http://www.panel-queen.com/common/css/all.css">
 <link rel="stylesheet" type="text/css"
@@ -16,16 +22,50 @@
 	href="http://www.panel-queen.com/common/css/menu_bubble_r.css">
 <link rel="stylesheet" type="text/css"
 	href="http://www.panel-queen.com/common/css/owl.carousel.min.css">
+	
+	
 <script>
-	$(function (){
-		if(${isParticipate != null}){
-			$(".start").hide();
-			$('.modify').show();
-			
-		}
-	});
+window.onload = function() {
+	var jsonData = $.ajax({
+        url: "/getResult/1",
+        dataType: "json",
+        async: false
+        }).responseText;
+	alert(jsonData);
+var chart = new CanvasJS.Chart("chartContainer", {
+	animationEnabled: true,
+	title: {
+		text: "Desktop Search Engine Market Share - 2016"
+	},
+	data: [{
+		type: "pie",
+		startAngle: 240,
+		yValueFormatString: "##0.00\"%\"",
+		indexLabel: "{label} {y}",
+		dataPoints: [{"y":1,"label":"포도"},{"y":2,"label":"배"}]
+	}]
+});
+	alert("응");
+chart.render();
+
+}
 </script>
+</head>
+<body>
+<div id="chartContainer" style="height: 300px; width: 100%;"></div>
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+</body>
+
+
+
 <div id="container" class="sub">
+
+
+
+
+${listResult }
+${total }
+
 
 	<!--컨텐츠영역-->
 	<div id="contents">
@@ -35,8 +75,10 @@
 			<div id="cont_wrap">
 
 
-				<link rel="stylesheet" type="text/css" href="http://www.panel-queen.com/content/board/nninc_poll/css/common.css" />
-				<link rel="stylesheet" type="text/css" href="http://www.panel-queen.com/content/board/nninc_photo/css/lightbox.css" />
+				<link rel="stylesheet" type="text/css"
+					href="http://www.panel-queen.com/content/board/nninc_poll/css/common.css">
+				<link rel="stylesheet" type="text/css"
+					href="http://www.panel-queen.com/content/board/nninc_photo/css/lightbox.css">
 				<script type="text/javascript"
 					src="/content/board/nninc_poll/js/common.js"></script>
 				<script type="text/javascript"
@@ -48,7 +90,9 @@
 
 				
 				<!-- 보기 -->
+				
 				<div id="board" style="width: 100%;">
+
 
 					<div class="s0102">
 						<ul class="tip">
@@ -63,7 +107,7 @@
 									<th scope="col">
 										<dl class="title">
 											<dt>${surveyVO.sv_id }</dt>
-											<dd>${surveyVO.sv_title}</dd>
+											<dd>${surveyVO.sv_title }</dd>
 											<dd class="code"></dd>
 										</dl>
 										<ul class="pt">
@@ -82,13 +126,13 @@
 							<tbody>
 								<tr>
 									<td>
+
 										<p>
 											<span style="font-size: 10pt;"></span>&nbsp;
 										</p>
 										<div class="btn_w">
-										
-											<a href="/content/enter?sv_id=${ surveyVO.sv_id }" target="" class="con_btn navy start">설문시작하기</a>
-											<a href="/content/modify?sv_id=${ surveyVO.sv_id }" target="" class="con_btn navy modify" style="display: none;">설문수정하기</a>
+											<a href="/content/enter" target="_blank" class="con_btn navy start">설문시작하기</a>
+											<a href="/content/enter" target="_blank" class="con_btn navy modify" style="display: none;">설문수정하기</a>
 										</div>
 
 									</td>
@@ -113,11 +157,11 @@
 
 
 							<span><a href="/content/list" class="cbtn cbtn_g">설문리스트</a></span>
-							<c:if test="${ authUser.m_kind eq '관리자'}"></c:if>
-							<span><a href="/admin/modify?sv_id=${ surveyVO.sv_id }" class="cbtn cbtn_g">설문내용수정하기</a></span>
 						</div>
 					</div>
 					<!-- //버튼 -->
+					<div id="piechart">차트</div>
+					<input type="button" value="데이터호출" onclick="ajaxData();"/>
 
 
 					<!-- 설문조사 가이드 -->
@@ -165,6 +209,10 @@
 						</ul>
 					</div>
 					<!--// 설문조사 가이드 -->
+
+
+
+
 
 
 					<!-- 댓글 -->
