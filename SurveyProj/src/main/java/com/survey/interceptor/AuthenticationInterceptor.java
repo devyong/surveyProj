@@ -19,11 +19,11 @@ public class AuthenticationInterceptor extends HandlerInterceptorAdapter{
 //		System.out.println(obj.toString());
 		boolean auth = true;
 		
-//		if (obj == null) {
-//			System.out.println("무조건 널이징?");
-//			auth = false;
-//			response.sendRedirect("/");
-//		}
+		if (obj == null) {
+			System.out.println("무조건 널이징?");
+			auth = false;
+			response.sendRedirect("/");
+		}
 		
 		return auth;
 	}
