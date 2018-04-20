@@ -56,7 +56,7 @@
 							</tr>
 						</thead>
 						<tbody>
-							<c:set var="now" value="<%=new java.util.Date()%>" />
+							<%-- <c:set var="now" value="<%=new java.util.Date()%>" />
 							<c:forEach items="${list }" var="surveyVO">
 								<tr class="">
 									<td>${surveyVO.sv_id }</td>
@@ -84,6 +84,26 @@
 									<!-- 				<td><span class="pt c_yellow">30</span></td> -->
 									<!-- 				<td><span class="pt c_blue">진행중</span></td> -->
 								</tr>
+							</c:forEach> --%>
+							<c:set var="now" value="<%=new java.util.Date()%>" />
+							<c:forEach items="${list }" var="surveyVO">
+								<tr class="">
+									<td>${surveyVO.sv_id }<br></td>
+									<td><a style=""
+										href="/content/read/${surveyVO.sv_id }">${surveyVO.sv_title }</a></td>
+									<td><span class="">${surveyVO.sv_writer }</span></td>
+									<td><span class="">${surveyVO.sv_startdate }</span></td>
+									<td><span class="">${surveyVO.sv_enddate }</span></td>
+									<td><span class="pt c_green">${surveyVO.sv_hits }</span></td>
+									<td><span class="pt c_yellow">${surveyVO.sv_count }</span></td>
+									<%-- <td><span class="pt c_blue">${surveyVO.sv_state }</span></td> --%>
+									<c:if test="${surveyVO.sv_enddate >= now  }">
+										<td><span class="pt c_blue">${surveyVO.sv_state }</span></td>
+									</c:if>
+									<c:if test="${surveyVO.sv_enddate < now  }">
+										<td><span class="pt c_blue">종료 ㅋㅋ</span></td>
+									</c:if>
+								</tr>
 							</c:forEach>
 							<tr class="empty">
 								<td colspan="5"></td>
@@ -106,9 +126,35 @@
 </c:if>
 					<!-- 페이징 -->
 					<div class="board_paginate">
-						<a>&lt;</a>&nbsp; <strong>1</strong>&nbsp; <a>2</a>&nbsp; <a>3</a>&nbsp;
-						<a>&gt;</a>&nbsp;
-					</div>
+					<ul>
+						<c:if test="${pageMaker.prev }">
+							<li><a href="list?page=${pageMaker.startPage - 1 }">&laquo;</a></li>
+						</c:if>
+
+						<c:forEach begin="${pageMaker.startPage }"
+							end="${pageMaker.endPage }" var="idx">
+							<li style="display: inline;"
+								<%-- <c:out value="${pageMaker.cri.page == idx?'class=active':'' }"/>> --%>
+								>
+								<c:choose>
+								
+								<c:when test="${pageMaker.cri.page eq idx}">
+								<a href="list?page=${idx }"><b>${idx }</b></a>
+								</c:when>
+								<c:otherwise>
+								<a href="list?page=${idx }">${idx }</a>
+								</c:otherwise>
+								</c:choose>
+							
+								
+							</li>
+						</c:forEach>
+
+						<c:if test="${pageMaker.next && pageMaker.endPage > 0  }">
+							<li><a href="list?page=${pageMaker.endPage +1 }">&raquo;</a></li>
+						</c:if>
+					</ul>
+				</div>
 					<!-- //페이징 -->
 
 					<!-- 게시물 검색 -->

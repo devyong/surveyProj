@@ -15,9 +15,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.survey.domain.Criteria;
 import com.survey.domain.EnterListVO;
 import com.survey.domain.EnterTitleVO;
 import com.survey.domain.MemberVO;
+import com.survey.domain.PageMaker;
 import com.survey.domain.SurveyResultVO;
 import com.survey.service.EnterTitleService;
 import com.survey.service.SurveyResultService;
@@ -37,14 +39,18 @@ public class ContentController {
 	
 
 	@RequestMapping(value="/content/list", method = RequestMethod.GET)
-	public String listPage(Model model) {
-		logger.info("Content List Page..........");
-		try {
-			model.addAttribute("list", sService.listSurvey());
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}		
+	public String listPage(Criteria cri, Model model) throws Exception {
+logger.info("Content List Page..........");
+		
+		model.addAttribute("list", sService.listPage(cri));
+		PageMaker pageMaker = new PageMaker();
+		pageMaker.setCri(cri);
+
+		pageMaker.setTotalCount(sService.listCount(cri));
+		
+		model.addAttribute("pageMaker",pageMaker);
+		System.out.println("pageMaker>>"+pageMaker.toString()+"cri>>>"+cri.toString());
+		
 		return "content.list";
 	}
 	
