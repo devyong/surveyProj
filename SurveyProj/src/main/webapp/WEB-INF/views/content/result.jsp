@@ -25,36 +25,31 @@
 	
 	
 <script>
-window.onload = function() {
-	var jsonData = $.ajax({
-        url: "/getResult/1",
-        dataType: "json",
-        async: false
-        }).responseText;
-	alert(jsonData);
-var chart = new CanvasJS.Chart("chartContainer", {
-	animationEnabled: true,
-	title: {
-		text: "Desktop Search Engine Market Share - 2016"
-	},
-	data: [{
-		type: "pie",
-		startAngle: 240,
-		yValueFormatString: "##0.00\"%\"",
-		indexLabel: "{label} {y}",
-		dataPoints: [{"y":1,"label":"포도"},{"y":2,"label":"배"}]
-	}]
-});
-	alert("응");
-chart.render();
-
-}
+	window.onload = function() {
+		var jsonData = $.ajax({
+			url : "/getResult/" + ${surveyVO.sv_id},
+			dataType : "json",
+			async : false
+		}).responseText;
+		var total = ${total };
+		console.log(jsonData);
+		var chart = new CanvasJS.Chart("chartContainer", {
+			animationEnabled : true,
+			title : {text : "설문 결과"},
+			data : [ {
+				type : "pie",
+				startAngle : 240,
+				yValueFormatString : "##0\"명\"",
+				indexLabel : "{label} {y}",
+				dataPoints : jQuery.parseJSON(jsonData)
+			} ]
+			
+		});
+		chart.render();
+	}
 </script>
-</head>
-<body>
-<div id="chartContainer" style="height: 300px; width: 100%;"></div>
 <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
-</body>
+
 
 
 
@@ -126,13 +121,12 @@ ${total }
 							<tbody>
 								<tr>
 									<td>
-
+<div id="chartContainer" style="height: 300px; width: 100%;"></div>
 										<p>
 											<span style="font-size: 10pt;"></span>&nbsp;
 										</p>
 										<div class="btn_w">
-											<a href="/content/enter" target="_blank" class="con_btn navy start">설문시작하기</a>
-											<a href="/content/enter" target="_blank" class="con_btn navy modify" style="display: none;">설문수정하기</a>
+											<a href="/content/enter" target="_blank" class="con_btn navy modify" ">답변수정하기</a>
 										</div>
 
 									</td>

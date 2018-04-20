@@ -7,8 +7,10 @@ import javax.inject.Inject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.survey.domain.SurveyAndListVO;
 import com.survey.domain.SurveyListVO;
 import com.survey.domain.SurveyVO;
+import com.survey.persistence.SurveyAndListDAO;
 import com.survey.persistence.SurveyDAO;
 import com.survey.persistence.SurveyListDAO;
 
@@ -20,6 +22,9 @@ public class AdminServiceImpl implements AdminService {
 	
 	@Inject
 	SurveyListDAO list_dao;
+	
+	@Autowired
+	SurveyAndListDAO andList_dao;
 	
 	@Override
 	public void addSurvey(SurveyVO survey, List<SurveyListVO> list) {
@@ -33,6 +38,18 @@ public class AdminServiceImpl implements AdminService {
 		
 		list_dao.insertList(list);
 
+	}
+
+	@Override
+	public List<SurveyAndListVO> getSurveyContent(int sv_id) {
+		
+		return andList_dao.selectSurveyAndList(sv_id);
+	}
+
+	@Override
+	public void modifySurveyAndList(List<SurveyAndListVO> andList) {
+		andList_dao.updateSurveyAndList(andList);
+		
 	}
 
 }

@@ -16,4 +16,24 @@
 	<select id="selectLastSv_id" resultType="SurveyVO">
 	select sv_id from survey where rownum = 1 order by sv_id desc
 	</select>
+	
+	<select id="selectSurveyAndList" resultType="SurveyAndListVO">
+	select * from survey s 
+	join survey_list l 
+	on s.SV_ID = l.SV_ID 
+	where s.sv_id = #{sv_id}
+	</select>
+	
+	<update id="updateSurvey">
+	update survey 
+	set sv_title = #{sv_title}
+	, sv_enddate = #{sv_enddate}
+	where sv_id = #{sv_id}
+	</update>
+	
+	<update id="updateSurveyList">
+	update survey_list set list_content = #{list_content} where list_id = #{list_id}
+	</update>
+	
+	
 </mapper>

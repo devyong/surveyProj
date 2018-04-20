@@ -15,7 +15,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 			throws Exception {
 		
 		HttpSession session = request.getSession();
-		Object obj = session.getAttribute("memberVO");
+		Object obj = session.getAttribute("authUser");
 		boolean member = true;
 		
 		if(obj != null) {

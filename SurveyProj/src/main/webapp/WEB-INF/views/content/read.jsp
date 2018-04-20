@@ -113,8 +113,10 @@
 
 
 							<span><a href="/content/list" class="cbtn cbtn_g">설문리스트</a></span>
-							<c:if test="${ authUser.m_kind eq '관리자'}"></c:if>
+							<span><a href="/content/result/${ surveyVO.sv_id }" class="cbtn cbtn_g">결과보기</a></span>
+							<c:if test="${ authUser.m_kind eq '관리자'}">
 							<span><a href="/admin/modify?sv_id=${ surveyVO.sv_id }" class="cbtn cbtn_g">설문내용수정하기</a></span>
+							</c:if>
 						</div>
 					</div>
 					<!-- //버튼 -->

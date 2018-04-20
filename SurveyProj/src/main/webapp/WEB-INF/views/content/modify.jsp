@@ -24,8 +24,8 @@
 		<section class="survey-page-body">
 								
 			<form name="surveyForm" action="" method="post">
-				<input type="hidden" value="${ enterTitleVO.sv_id }">
-				<input type="hidden" value="${ srvovo.result_id}">
+				<input type="hidden" value="${ enterTitleVO.sv_id }" name="sv_id">
+				<input type="hidden" value="${ srvo.result_id}" >
 				
 				<div class="questions clearfix">
 						
