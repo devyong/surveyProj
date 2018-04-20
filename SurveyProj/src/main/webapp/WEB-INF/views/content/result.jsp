@@ -41,8 +41,8 @@ var chart = new CanvasJS.Chart("chartContainer", {
 		type: "pie",
 		startAngle: 240,
 		yValueFormatString: "##0.00\"%\"",
-		indexLabel: "{\"label\"} {\"y\"}",
-		dataPoints: jsonData
+		indexLabel: "{label} {y}",
+		dataPoints: [{"y":1,"label":"포도"},{"y":2,"label":"배"}]
 	}]
 });
 	alert("응");

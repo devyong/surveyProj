@@ -51,25 +51,16 @@ public class ContentController {
 	public String readPage(@PathVariable("sv_id") int sv_id, Model model) throws Exception {
 		logger.info("Content Read Page..........");
 				
-//		String m_id = "kim@naver.com";
 		String m_id = "han@naver.com";
 		
 //		String m_id = session.Member.getM_id();
 		sService.addCount(sv_id);
 		model.addAttribute(sService.read(sv_id));
 		
-//		logger.info("srservice 들가기전");
-		
-		
 		Integer isParticipate = sRService.isParticipate(sv_id, m_id);
 		if (isParticipate != null) {
 			model.addAttribute("isParticipate", isParticipate);
 		} 
-		
-//		logger.info("srservice 나옴");
-//		
-//		logger.info("isparticipate 저장전");
-//		logger.info("isparticipate 저장");
 		
 		return "content.read";
 	}
