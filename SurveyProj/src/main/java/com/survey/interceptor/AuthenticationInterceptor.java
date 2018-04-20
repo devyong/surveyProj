@@ -16,14 +16,15 @@ public class AuthenticationInterceptor extends HandlerInterceptorAdapter{
 			throws Exception {
 		HttpSession session = request.getSession();
 		Object obj = session.getAttribute("authUser");
-		System.out.println(obj.toString());
+//		System.out.println(obj.toString());
 		boolean auth = true;
 		
 		
-		if (obj == null) {
-			auth = false;
-			response.sendRedirect("/");
-		}
+//		if (obj == null) {
+//			auth = false;
+//			response.sendRedirect("/");
+//		}
+		
 		
 		
 		return auth;
