@@ -35,10 +35,8 @@
 			<div id="cont_wrap">
 
 
-				<link rel="stylesheet" type="text/css"
-					href="http://www.panel-queen.com/content/board/nninc_poll/css/common.css">
-				<link rel="stylesheet" type="text/css"
-					href="http://www.panel-queen.com/content/board/nninc_photo/css/lightbox.css">
+				<link rel="stylesheet" type="text/css" href="http://www.panel-queen.com/content/board/nninc_poll/css/common.css" />
+				<link rel="stylesheet" type="text/css" href="http://www.panel-queen.com/content/board/nninc_photo/css/lightbox.css" />
 				<script type="text/javascript"
 					src="/content/board/nninc_poll/js/common.js"></script>
 				<script type="text/javascript"
@@ -65,7 +63,7 @@
 									<th scope="col">
 										<dl class="title">
 											<dt>${surveyVO.sv_id }</dt>
-											<dd>${surveyVO.           }</dd>
+											<dd>${surveyVO.sv_title}</dd>
 											<dd class="code"></dd>
 										</dl>
 										<ul class="pt">
@@ -84,18 +82,13 @@
 							<tbody>
 								<tr>
 									<td>
-
-<<<<<<< HEAD
-=======
-
-
->>>>>>> refs/heads/master
 										<p>
 											<span style="font-size: 10pt;"></span>&nbsp;
 										</p>
 										<div class="btn_w">
-											<a href="/content/enter" target="_blank" class="con_btn navy start">설문시작하기</a>
-											<a href="/content/enter" target="_blank" class="con_btn navy modify" style="display: none;">설문수정하기</a>
+										
+											<a href="/content/enter?sv_id=${ surveyVO.sv_id }" target="" class="con_btn navy start">설문시작하기</a>
+											<a href="/content/modify?sv_id=${ surveyVO.sv_id }" target="" class="con_btn navy modify" style="display: none;">설문수정하기</a>
 										</div>
 
 									</td>
@@ -120,6 +113,8 @@
 
 
 							<span><a href="/content/list" class="cbtn cbtn_g">설문리스트</a></span>
+							<c:if test="${ authUser.m_kind eq '관리자'}"></c:if>
+							<span><a href="/admin/modify?sv_id=${ surveyVO.sv_id }" class="cbtn cbtn_g">설문내용수정하기</a></span>
 						</div>
 					</div>
 					<!-- //버튼 -->

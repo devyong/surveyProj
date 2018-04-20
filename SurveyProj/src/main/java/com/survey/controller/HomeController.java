@@ -47,7 +47,7 @@ public class HomeController {
 			return "redirect:/";
 		}
 		
-		session.setAttribute("memberVO", user);
+		session.setAttribute("authUser", user);
 		
 		return "redirect:/content/list";
 	}
@@ -55,7 +55,7 @@ public class HomeController {
 	@RequestMapping(value="/logout", method= {RequestMethod.GET, RequestMethod.POST})
 	public String logout(MemberVO member, HttpSession session) {
 		
-		session.removeAttribute("memberVO");
+		session.removeAttribute("authUser");
 				
 		return "redirect:/";
 		

@@ -18,7 +18,7 @@
 	</select>
 					
 	<insert id="resultInsert">
-		insert into SURVEY_RESULT values (SEQ_RESULT.NEXTVAL, 'kim@naver.com', #{list_id}, sysdate)
+		insert into SURVEY_RESULT values (SEQ_RESULT.NEXTVAL, #{m_id}, #{list_id}, sysdate)
 	</insert>
 			
 	<update id="resultUpdate">

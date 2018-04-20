@@ -1,9 +1,6 @@
 package com.survey.controller;
 
-<<<<<<< HEAD
-import java.util.HashMap;
-=======
->>>>>>> refs/heads/master
+
 import java.util.List;
 
 import javax.inject.Inject;
@@ -11,16 +8,9 @@ import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-<<<<<<< HEAD
-import org.springframework.http.HttpRequest;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-=======
 import org.springframework.beans.factory.annotation.Autowired;
->>>>>>> refs/heads/master
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -49,52 +39,32 @@ public class ContentController {
 	@RequestMapping(value="/content/list", method = RequestMethod.GET)
 	public String listPage(Model model) {
 		logger.info("Content List Page..........");
-<<<<<<< HEAD
 		try {
 			model.addAttribute("list", sService.listSurvey());
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}		
-=======
-		
->>>>>>> refs/heads/master
 		return "content.list";
 	}
 	
 	@RequestMapping(value="/content/read/{sv_id}", method=RequestMethod.GET)
-	public String readPage(@PathVariable("sv_id") int sv_id, Model model) throws Exception {
-		logger.info("Content Read Page..........");
-<<<<<<< HEAD
-				
-=======
+	public String readPage(@PathVariable("sv_id") int sv_id, Model model, HttpSession session) throws Exception {
 		
-//		String m_id = "kim@naver.com";
->>>>>>> refs/heads/master
-		String m_id = "han@naver.com";
-		
-//		String m_id = session.Member.getM_id();
+		MemberVO member = (MemberVO) session.getAttribute("authUser");
+		String m_id = member.getM_id();
+
+		logger.info("Content Read Page.........." + m_id + sv_id);
 		sService.addCount(sv_id);
 		model.addAttribute(sService.read(sv_id));
 		
-<<<<<<< HEAD
-=======
-//		logger.info("srservice 들가기전");
 		
->>>>>>> refs/heads/master
 		Integer isParticipate = sRService.isParticipate(sv_id, m_id);
 		if (isParticipate != null) {
 			model.addAttribute("isParticipate", isParticipate);
 		} 
-		
-<<<<<<< HEAD
-=======
-//		logger.info("srservice 나옴");
-//			
-//		logger.info("isparticipate 저장전");
-//		logger.info("isparticipate 저장");
+
 			
->>>>>>> refs/heads/master
 		return "content.read";
 	}	
 	
@@ -120,7 +90,6 @@ public class ContentController {
 		return "content.enter";
 	}
 
-<<<<<<< HEAD
 	@RequestMapping(value="/content/result/{sv_id}", method=RequestMethod.GET)
 	public String resultPage(@PathVariable("sv_id") int sv_id, Model model) {
 		logger.info("Content Result Page..........");
@@ -135,10 +104,10 @@ public class ContentController {
 		
 		return "content.result";
 	}	
-=======
 	@RequestMapping(value = "/content/enter", method = RequestMethod.POST)
-	public String postEnterpage(Model model, SurveyResultVO srvo ) throws Exception{
-		
+	public String postEnterpage(Model model, SurveyResultVO srvo, HttpSession session) throws Exception{
+		MemberVO member = (MemberVO) session.getAttribute("authUser");
+		srvo.setM_id(member.getM_id());
 		etservice.resultInsert(srvo);
 		
 		
@@ -175,6 +144,4 @@ public class ContentController {
 		
 		return "redirect:list";
 	}
->>>>>>> refs/heads/master
-	
 }

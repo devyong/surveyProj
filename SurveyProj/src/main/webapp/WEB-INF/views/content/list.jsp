@@ -96,14 +96,14 @@
 
 
 
-
+	<c:if test="${ authUser.m_kind eq '관리자' }">
 					<!-- 버튼 -->
 					<div class="board_button">
 						<div class="fr"></div>
 						<button class="board pt c_green">글쓰기</button>
 					</div>
 					<!-- //버튼 -->
-
+</c:if>
 					<!-- 페이징 -->
 					<div class="board_paginate">
 						<a>&lt;</a>&nbsp; <strong>1</strong>&nbsp; <a>2</a>&nbsp; <a>3</a>&nbsp;
